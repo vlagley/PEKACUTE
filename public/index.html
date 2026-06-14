@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на Маникюр</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1 id="userGreeting">Студия Маникюра</h1>
+            <div id="adminBadge" class="badge hidden">Режим Администратора</div>
+        </header>
+
+        <div id="activeBookingContainer" class="card hidden">
+            <h3>Ваша текущая запись:</h3>
+            <p id="bookingDetails"></p>
+            <button id="cancelBookingBtn" class="btn btn-danger">Отменить запись</button>
+        </div>
+
+        <div id="mainCalendarSection" class="card">
+            <h3>Выбор даты визита</h3>
+            <input type="date" id="calendarInput">
+            
+            <div id="slotsSection" class="hidden">
+                <h4 style="margin-top: 15px;">Доступное время:</h4>
+                <div id="slotsContainer" class="slots-grid"></div>
+            </div>
+        </div>
+
+        <div id="bookingFormModal" class="card hidden">
+            <h3>Подтверждение записи</h3>
+            <p id="selectedSlotInfo"></p>
+            <input type="text" id="clientName" placeholder="Ваше Имя" required>
+            <input type="tel" id="clientPhone" placeholder="+7 (999) 123-4567" required>
+            <button id="confirmBookingBtn" class="btn">Записаться</button>
+            <button id="closeFormBtn" class="btn btn-secondary">Назад</button>
+        </div>
+
+        <div id="adminPanel" class="card hidden">
+            <h2>🛠️ Управление расписанием</h2>
+            <hr>
+            <div class="admin-action">
+                <h4>Добавить временной слот:</h4>
+                <input type="time" id="adminTimeInput">
+                <button id="addSlotBtn" class="btn">Добавить время</button>
+            </div>
+            <hr>
+            <div class="admin-action">
+                <h4>Управление днем:</h4>
+                <button id="closeDayBtn" class="btn btn-danger">Полностью закрыть выбранный день</button>
+            </div>
+            <hr>
+            <h4>Все слоты на выбранную дату:</h4>
+            <div id="adminSlotsContainer" class="slots-grid"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
